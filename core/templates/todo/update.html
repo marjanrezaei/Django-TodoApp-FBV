@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Edit Todo</h1>
+        <h1>Edit Task</h1>
         <form method="POST" action="{% url 'todo:update-todo' pk=todo.id %}">
             {% csrf_token %}
             <label for="title">Title:</label>
