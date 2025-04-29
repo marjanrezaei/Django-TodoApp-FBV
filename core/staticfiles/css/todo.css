@@ -1,0 +1,96 @@
+/* General styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f2f4f7;
+    color: #333;
+}
+
+header {
+    background: #0078d7;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-section {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-section input[type="text"],
+.form-section textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form-section label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-section button {
+    background: #0078d7;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-section button:hover {
+    background: #005bb5;
+}
+
+.todo-list {
+    padding: 20px;
+}
+
+.todo-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.todo-list th, .todo-list td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-list th {
+    background: #f4f4f4;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .form-section input[type="text"],
+    .form-section textarea {
+        width: 100%;
+    }
+
+    .todo-list table {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoApp</title>
+    <link rel="stylesheet" href="{% static 'css/todo.css' %}">
+
+</head>
+<body>
+   
+    <header>ToDoApp</header> 
+    <a href="{% url 'accounts:logout' %}" style="color: rgb(7, 15, 255); text-decoration: none;"> Logout </a>
+
+    <div class="container">
+         <!-- Form Section -->
+        <div class="form-section">
+        <h2>Add a New Todo</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="description" placeholder="Description" rows="4"></textarea>
+            <label>
+                <input type="checkbox" name="completed">  Mark as Completed
+            </label>
+            <button type="submit">Add Todo</button>
+        </form>
+        </div>
+    <div class="todo-list" >
+        <h2 >Todo List</h2>
+        <table> <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+            <tr>
+                <td>{{ todo.title }}</td>
+                <td>{{ todo.description }}</td>
+                <td>
+                    {% if todo.completed %}
+                        <span style="color: green;">Completed</span>
+                    {% else %}
+                        <span style="color: red;">Pending</span>
+                    {% endif %}
+                </td>
+                <td class="actions">
+                    <a href="{% url 'todo:update-todo' todo.id %}">Edit</a>
+                    <a href="{% url 'todo:delete-todo' todo.id %}" style="color: red;">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>
