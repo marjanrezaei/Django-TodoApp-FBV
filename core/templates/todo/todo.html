@@ -52,7 +52,9 @@
                 </td>
                 <td class="actions">
                     <a href="{% url 'todo:update-todo' todo.id %}">Edit</a>
-                    <a href="{% url 'todo:delete-todo' todo.id %}" style="color: red;">Delete</a>
+                    <a href="{% url 'todo:delete-todo' todo.id %}" 
+                    style="color: red;" 
+                    onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                 </td>
             </tr>
             {% endfor %}
